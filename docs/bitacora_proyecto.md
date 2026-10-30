@@ -581,6 +581,57 @@ La ausencia de versiones fijadas cumple la instrucción del curso, aunque no gar
 
 **Estado:** Archivo creado, guardado y contenido verificado. Publicación en GitHub pendiente.
 
+### 2.21. Publicación de dependencias en GitHub
+
+**Objetivo:** Incorporar `requirements.txt` al repositorio público junto con la documentación académica actualizada.
+
+**Mensaje del Commit:**
+
+`Add project dependencies and update academic documentation`
+
+**Procedimiento:**
+
+- Se prepararon los dos archivos mediante Stage.
+- Se registró el Commit en la rama `main`.
+- Se ejecutó `Sync Changes` desde VS Code.
+
+**Resultados verificados:**
+
+- GitHub Desktop mostró `No local changes`.
+- GitHub web mostró `requirements.txt` con `pandas`, `plotly` y `streamlit`.
+
+**Estado:** Publicación del archivo de dependencias completada.
+
+### 2.22. Incorporación del dataset al proyecto
+
+**Objetivo:** Incorporar el conjunto de datos `vehicles_us.csv` al repositorio local, conservando intacto el archivo original.
+
+**Procedimiento:**
+
+- Se confirmó la existencia del archivo en su carpeta de origen.
+- Se copió `vehicles_us.csv` a la raíz del repositorio mediante el Explorador de Windows.
+- Se verificó su existencia y tamaño mediante PowerShell.
+
+**Comando de verificación:**
+
+```powershell
+Get-Item .\vehicles_us.csv | Select-Object Name, Length
+```
+
+**Resultado observado:**
+
+- Archivo: `vehicles_us.csv`.
+- Tamaño: 4,461,562 bytes.
+- Ubicación: raíz del proyecto C7.
+
+**Interpretación:**
+
+La verificación confirma que el archivo existe y contiene datos a nivel de bytes. Sin embargo, todavía no se han comprobado su estructura, columnas, registros ni integridad lógica.
+
+Estas comprobaciones se realizarán directamente en `notebooks/EDA.ipynb`, conforme al protocolo de documentación simultánea.
+
+**Estado:** Dataset incorporado localmente. Análisis exploratorio y publicación en GitHub pendientes.
+
 ---
 
 ## 3. Estado actual
@@ -627,9 +678,11 @@ La ausencia de versiones fijadas cumple la instrucción del curso, aunque no gar
 
 - Dependencias del proyecto instaladas y verificadas en `vehicles_env`.
 
+- Incorporar el dataset al repositorio.
+
 **Pendiente:**
 
-- Incorporar el dataset al repositorio.
+- Incorporar y publicar el dataset al repositorio.
 
 - Crear `notebooks/EDA.ipynb` antes de iniciar el análisis.
 
