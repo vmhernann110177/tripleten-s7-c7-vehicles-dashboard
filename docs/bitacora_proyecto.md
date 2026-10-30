@@ -522,6 +522,65 @@ Esta comprobación valida la disponibilidad de las dependencias, pero todavía n
 
 **Estado:** Instalación y verificación de dependencias completadas satisfactoriamente.
 
+### 2.19. Tercer Commit y verificación de sincronización
+
+**Objetivo:** Publicar la documentación correspondiente a la instalación y verificación de las dependencias del proyecto.
+
+**Archivo publicado:** `docs/bitacora_proyecto.md`
+
+**Mensaje del Commit:**
+
+`Document dependency installation and environment verification`
+
+**Procedimiento realizado:**
+
+- Se preparó la bitácora mediante `Stage Changes`.
+- Se registró el Commit en la rama local `main`.
+- Se ejecutó `Sync Changes` desde VS Code.
+- Se habilitó la consulta periódica `git fetch` en VS Code.
+- Se verificó el estado de Git desde PowerShell.
+- Se comprobó el repositorio mediante GitHub Desktop y GitHub web.
+
+**Resultados verificados:**
+
+- `git status -sb` mostró `## main...origin/main`.
+- GitHub Desktop mostró `No local changes`.
+- GitHub web mostró la sección 2.18 de la bitácora actualizada.
+
+**Interpretación:**
+
+La coincidencia entre la rama local y `origin/main`, junto con las verificaciones realizadas, confirma que el Commit fue publicado correctamente.
+
+La opción `git fetch` permite consultar actualizaciones remotas periódicamente sin integrar automáticamente esos cambios en los archivos locales.
+
+**Estado:** Tercer ciclo Commit → Sync → verificación remota completado.
+
+### 2.20. Creación y verificación de requirements.txt
+
+**Objetivo:** Declarar las dependencias necesarias para instalar y ejecutar la aplicación web en otros entornos, incluido Render.
+
+**Archivo:** `requirements.txt`, ubicado en la raíz del repositorio.
+
+**Contenido:**
+
+```text
+pandas
+plotly
+streamlit
+```
+
+**Verificación realizada:**
+
+Se ejecutó `Get-Content .\requirements.txt` desde PowerShell y se confirmó que contiene exactamente las tres bibliotecas exigidas por Tripleten, sin especificar versiones.
+
+**Interpretación:**
+
+`requirements.txt` permite instalar las dependencias del proyecto mediante `pip install -r requirements.txt`.
+
+La ausencia de versiones fijadas cumple la instrucción del curso, aunque no garantiza reproducibilidad exacta entre instalaciones.
+
+**Estado:** Archivo creado, guardado y contenido verificado. Publicación en GitHub pendiente.
+
 ---
 
 ## 3. Estado actual
@@ -563,6 +622,10 @@ Esta comprobación valida la disponibilidad de las dependencias, pero todavía n
 - Dependencias `pandas`, `plotly` y `streamlit` instaladas en `vehicles_env`.
 
 - Importaciones y versiones verificadas: pandas 3.1.0, Plotly 7.1.0 y Streamlit 1.66.1.
+
+- Tercer ciclo Commit → Sync → verificación en GitHub completado.
+
+- Dependencias del proyecto instaladas y verificadas en `vehicles_env`.
 
 **Pendiente:**
 
