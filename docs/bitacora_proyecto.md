@@ -402,6 +402,126 @@ Esta decisión permite conservar las preferencias locales de VS Code sin incorpo
 
 **Estado:** Exclusión de `.vscode/` verificada. Commit y Push pendientes.
 
+### 2.16. Segundo Commit y sincronización con GitHub
+
+**Objetivo:** Registrar y publicar los avances correspondientes a la configuración del entorno Python y el control de versiones.
+
+**Archivos incluidos:**
+
+- `.gitignore`
+- `docs/bitacora_proyecto.md`
+
+**Mensaje del Commit:**
+
+`Document Python environment setup and Git configuration`
+
+**Procedimiento realizado:**
+
+- Se verificaron los dos archivos modificados en Source Control.
+- Se incorporaron ambos a `Staged Changes`.
+- Se realizó un Commit local en la rama `main`.
+- VS Code mostró `Sync Changes 1 ↑`.
+- Se autorizó la sincronización con `origin/main` mediante `Ok`.
+
+**Resultados verificados:**
+
+- La sincronización finalizó sin errores reportados.
+- GitHub Desktop dejó de mostrar el Push pendiente.
+- GitHub Desktop mostró `No Local Changes`.
+- Se confirmó en GitHub web que los cambios estaban publicados.
+
+**Interpretación:**
+
+El Commit registró los cambios localmente. La función `Sync Changes` permitió sincronizar los commits de la rama local con `origin/main`.
+
+La comprobación posterior en GitHub Desktop y GitHub web confirmó que las herramientas trabajan sobre el mismo repositorio.
+
+**Estado:** Segundo ciclo de control de versiones completado satisfactoriamente.
+
+### 2.17. Verificación inicial de dependencias del proyecto
+
+**Objetivo:** Comprobar la disponibilidad de las bibliotecas requeridas para desarrollar la aplicación web antes de realizar instalaciones.
+
+**Entorno:** `vehicles_env` — Python 3.14.8.
+
+**Primera comprobación — Conda:**
+
+Se ejecutó inicialmente:
+
+```powershell
+conda list -n vehicles_env pandas plotly streamlit
+```
+
+El comando produjo un error de argumentos porque `conda list` no admite varios patrones independientes de esa manera.
+
+Se corrigió utilizando una expresión regular:
+
+```powershell
+conda list -n vehicles_env "^(pandas|plotly|streamlit)$"
+```
+
+**Resultado observado:**
+
+`CondaValueError: No packages match '^(pandas|plotly|streamlit)$'.`
+
+**Segunda comprobación — pip:**
+
+```powershell
+python -m pip show pandas plotly streamlit
+```
+
+**Resultado observado:**
+
+`WARNING: Package(s) not found: pandas, plotly, streamlit`
+
+**Interpretación:**
+
+Las comprobaciones indican que las tres bibliotecas requeridas por Tripleten no están instaladas en el entorno `vehicles_env`.
+
+Esto es consistente con la creación de un entorno Python aislado, sin incorporar todavía las dependencias específicas de la aplicación.
+
+La ausencia de estas bibliotecas no representa un error de configuración del entorno.
+
+**Estado:** Diagnóstico de dependencias completado. Instalación de `pandas`, `plotly` y `streamlit` pendiente de autorización.
+
+### 2.18. Instalación y verificación de dependencias
+
+**Objetivo:** Instalar y comprobar las bibliotecas necesarias para el análisis de datos, la creación de visualizaciones interactivas y el desarrollo de la aplicación web.
+
+**Entorno utilizado:** `vehicles_env` — Python 3.14.8.
+
+**Comando ejecutado en PowerShell:**
+
+```powershell
+python -m pip install pandas plotly streamlit
+```
+
+**Resultado de la instalación:**
+
+El administrador de paquetes `pip` finalizó el proceso con el mensaje `Successfully installed`, incluyendo las tres bibliotecas requeridas y sus dependencias.
+
+**Verificación mediante importaciones:**
+
+```powershell
+python -c "import pandas, plotly, streamlit; print('pandas:', pandas.__version__); print('plotly:', plotly.__version__); print('streamlit:', streamlit.__version__)"
+```
+
+**Resultados observados:**
+
+- pandas: 3.1.0.
+- plotly: 7.1.0.
+- streamlit: 1.66.1.
+
+**Interpretación:**
+
+Las importaciones exitosas confirman que las tres bibliotecas se encuentran disponibles para el intérprete Python activo.
+
+`pandas` permitirá cargar y manipular el conjunto de datos; `plotly` permitirá construir visualizaciones interactivas; y `streamlit` permitirá desarrollar la interfaz web.
+
+Esta comprobación valida la disponibilidad de las dependencias, pero todavía no demuestra el funcionamiento integral de la aplicación.
+
+**Estado:** Instalación y verificación de dependencias completadas satisfactoriamente.
+
 ---
 
 ## 3. Estado actual
@@ -439,6 +559,10 @@ Esta decisión permite conservar las preferencias locales de VS Code sin incorpo
 - Prueba de ejecución de Python documentada y archivo temporal retirado.
 
 - Revisión de Source Control completada: únicamente `.gitignore` y `docs/bitacora_proyecto.md` presentan modificaciones pendientes.
+
+- Dependencias `pandas`, `plotly` y `streamlit` instaladas en `vehicles_env`.
+
+- Importaciones y versiones verificadas: pandas 3.1.0, Plotly 7.1.0 y Streamlit 1.66.1.
 
 **Pendiente:**
 
