@@ -632,6 +632,37 @@ Estas comprobaciones se realizarán directamente en `notebooks/EDA.ipynb`, confo
 
 **Estado:** Dataset incorporado localmente. Análisis exploratorio y publicación en GitHub pendientes.
 
+### 2.23. Inicialización y publicación del notebook EDA
+
+**Objetivo:** Preparar y publicar los archivos necesarios para comenzar el análisis exploratorio de datos.
+
+**Archivos publicados:**
+
+- `vehicles_us.csv`, en la raíz del repositorio.
+- `notebooks/EDA.ipynb`, en su ubicación definitiva.
+- `docs/bitacora_proyecto.md`, con la documentación actualizada.
+
+**Configuración del notebook:**
+
+- Kernel seleccionado: `vehicles_env` (Python 3.14.8).
+- Primera celda Markdown/HTML creada y renderizada.
+- Estructura visual personalizada con títulos, subtítulos y descripciones.
+
+**Mensaje del Commit:**
+
+`Add vehicle dataset and initialize EDA notebook`
+
+**Verificaciones:**
+
+- GitHub Desktop mostró `No local changes`.
+- GitHub web permitió visualizar correctamente `EDA.ipynb`.
+
+**Interpretación:**
+
+El dataset y el notebook están incorporados al repositorio público. La estructura inicial del análisis exploratorio está preparada, pero todavía no se han ejecutado operaciones de análisis sobre los datos.
+
+**Estado:** Publicación verificada. Inicio del EDA pendiente.
+
 ---
 
 ## 3. Estado actual
