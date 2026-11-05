@@ -23,9 +23,9 @@ El análisis exploratorio y sus interpretaciones se documentarán por separado e
 
 ---
 
-## 2. Fase 0 — Preparación del proyecto
+## 2. Registro cronológico del proyecto
 
-**Fecha de las actividades:** 26 de octubre de 2026.
+**Inicio de actividades:** 26 de octubre de 2026. Las secciones siguientes documentan avances de preparación, EDA e inicio de la aplicación web.
 
 ### 2.1. Identificación del dataset
 
@@ -634,34 +634,93 @@ Estas comprobaciones se realizarán directamente en `notebooks/EDA.ipynb`, confo
 
 ### 2.23. Inicialización y publicación del notebook EDA
 
-**Objetivo:** Preparar y publicar los archivos necesarios para comenzar el análisis exploratorio de datos.
+**Objetivo:** Preparar el notebook para el análisis exploratorio y validar su presentación en GitHub.
 
 **Archivos publicados:**
 
-- `vehicles_us.csv`, en la raíz del repositorio.
-- `notebooks/EDA.ipynb`, en su ubicación definitiva.
-- `docs/bitacora_proyecto.md`, con la documentación actualizada.
+- `vehicles_us.csv`.
+- `notebooks/EDA.ipynb`.
+- `docs/bitacora_proyecto.md`.
 
-**Configuración del notebook:**
+**Configuración:**
 
-- Kernel seleccionado: `vehicles_env` (Python 3.14.8).
+- Kernel: `vehicles_env` (Python 3.14.8).
 - Primera celda Markdown/HTML creada y renderizada.
-- Estructura visual personalizada con títulos, subtítulos y descripciones.
+- Formato visual probado en GitHub Preview.
 
-**Mensaje del Commit:**
+**Decisión de diseño:**
 
-`Add vehicle dataset and initialize EDA notebook`
+Se adoptó la jerarquía de tamaños 5/4/3, conservando los colores HTML establecidos. La redacción será sobria, breve y centrada en resultados.
 
-**Verificaciones:**
+**Verificación:**
 
-- GitHub Desktop mostró `No local changes`.
-- GitHub web permitió visualizar correctamente `EDA.ipynb`.
+El notebook se visualizó correctamente en GitHub y se aprobó su presentación.
 
-**Interpretación:**
+**Estado:** Notebook inicializado y publicado. Análisis exploratorio pendiente.
 
-El dataset y el notebook están incorporados al repositorio público. La estructura inicial del análisis exploratorio está preparada, pero todavía no se han ejecutado operaciones de análisis sobre los datos.
+### 2.24. Desarrollo y validación del análisis exploratorio
 
-**Estado:** Publicación verificada. Inicio del EDA pendiente.
+**Objetivo:** Examinar el conjunto de datos y preparar las visualizaciones necesarias para la aplicación web.
+
+**Actividades realizadas:**
+
+- Inicialización del notebook con pandas y Plotly.
+- Carga e inspección de `vehicles_us.csv`: 51,525 registros y 13 columnas.
+- Identificación y cuantificación de valores ausentes.
+- Revisión de duplicados exactos y coincidencias parciales.
+- Análisis descriptivo y revisión de valores extremos.
+- Construcción de histogramas de precio y odómetro.
+- Elaboración de gráficos de dispersión entre odómetro y precio.
+- Evaluación de ajustes visuales sin modificar el dataset original.
+- Documentación de hallazgos, interpretaciones y conclusiones.
+
+**Incidencia técnica:**
+
+VS Code solicitó instalar `ipykernel` para ejecutar las celdas del notebook. Posteriormente, se instaló `nbformat` en `vehicles_env` para resolver un error de renderizado de Plotly.
+
+**Validación:**
+
+El notebook `EDA.ipynb` se ejecutó completamente y sin errores en VS Code y Google Colab. Las diferencias observadas entre ambos entornos no afectaron los resultados principales.
+
+**Decisiones:**
+
+- Conservar el dataset original.
+- Utilizar un histograma de odómetro y un gráfico de dispersión odómetro-precio en Streamlit.
+- Incorporar dos controles interactivos independientes.
+- Mantener el EDA limitado a las necesidades del dashboard.
+
+**Estado:** EDA completado y validado.
+
+### 2.25. Inicio del desarrollo de la aplicación web
+
+Se creó `app.py` en la raíz del repositorio para implementar la aplicación con Streamlit.
+
+**Estado:** Archivo creado; implementación pendiente.
+
+### 2.26. Desarrollo y pruebas locales de Streamlit
+
+**Objetivo:** Construir y verificar la aplicación web interactiva.
+
+**Implementación:**
+
+- Carga del dataset mediante una ruta relativa a `app.py`.
+- Encabezado y dos casillas de verificación independientes.
+- Histograma interactivo del kilometraje.
+- Gráfico de dispersión entre kilometraje y precio.
+- Colores asociados a la concentración local de anuncios.
+
+**Ajustes visuales:**
+
+- Se incorporaron bordes naranjas para distinguir las barras del histograma.
+- Se ajustó la paleta de colores del gráfico de dispersión.
+- Se añadió el valor inicial a la escala cromática.
+- Se conservaron los rangos visibles de 0 a 400,000 para el odómetro y de 0 a 60,000 para el precio.
+
+**Verificación:**
+
+La aplicación se ejecutó en `http://localhost:8501/`. Se comprobó el funcionamiento independiente y simultáneo de las casillas y la interactividad de ambos gráficos.
+
+**Estado:** Aplicación funcional localmente. Publicación y despliegue pendientes.
 
 ---
 
@@ -669,56 +728,29 @@ El dataset y el notebook están incorporados al repositorio público. La estruct
 
 **Completado:**
 
-- Dataset localizado.
+- Repositorio público `tripleten-s7-c7-vehicles-dashboard` creado en GitHub, rama `main`, y clonado en una única carpeta local.
+- VS Code y GitHub Desktop integrados con el mismo repositorio; ciclos anteriores de Commit, sincronización y verificación remota completados.
+- Entorno Conda `vehicles_env` configurado y verificado con Python 3.14.8.
+- Dependencias `pandas`, `plotly` y `streamlit` instaladas y verificadas; `ipykernel` y `nbformat` habilitados para el notebook.
+- `.gitignore` configurado para excluir `.vscode/` del seguimiento de Git.
+- `requirements.txt` publicado en GitHub con las tres dependencias requeridas.
+- `vehicles_us.csv` incorporado y publicado en la raíz del repositorio.
+- `notebooks/EDA.ipynb` elaborado y validado de principio a fin en VS Code y Google Colab.
+- Histogramas y gráficos de dispersión elaborados con Plotly; resultados e interpretaciones documentados en el notebook.
+- `app.py` creado, vacío, en la raíz del repositorio.
 
-- Repositorio público creado.
+**En curso:**
 
-- Rama principal identificada.
-
-- Carpeta local preparada.
-
-- Repositorio clonado.
-
-- Proyecto abierto en VS Code.
-
-- Archivo de bitácora creado.
-
-- GitHub Desktop integrado con la misma copia local del repositorio.
-
-- Primer ciclo Commit → Push → verificación en GitHub completado.
-
-- Entorno Conda `vehicles_env` creado y activado.
-
-- Python 3.14.8 verificado.
-
-- Intérprete `vehicles_env` seleccionado en VS Code.
-
-- Ejecución mediante `Run Python File` comprobada satisfactoriamente.
-
-- Configuración de `.gitignore` verificada para excluir `.vscode/`.
-
-- Prueba de ejecución de Python documentada y archivo temporal retirado.
-
-- Revisión de Source Control completada: únicamente `.gitignore` y `docs/bitacora_proyecto.md` presentan modificaciones pendientes.
-
-- Dependencias `pandas`, `plotly` y `streamlit` instaladas en `vehicles_env`.
-
-- Importaciones y versiones verificadas: pandas 3.1.0, Plotly 7.1.0 y Streamlit 1.66.1.
-
-- Tercer ciclo Commit → Sync → verificación en GitHub completado.
-
-- Dependencias del proyecto instaladas y verificadas en `vehicles_env`.
-
-- Incorporar el dataset al repositorio.
+- Documentación de avances recientes en `docs/bitacora_proyecto.md`, aún pendiente de publicación.
+- Desarrollo de la aplicación web en `app.py`.
 
 **Pendiente:**
 
-- Incorporar y publicar el dataset al repositorio.
+- Implementar en Streamlit un encabezado, un histograma de `odometer`, un gráfico de dispersión `odometer`–`price` y dos casillas de verificación independientes.
+- Probar localmente la aplicación y comprobar el funcionamiento de ambos controles y gráficos.
+- Revisar y publicar en GitHub los cambios acumulados de `notebooks/EDA.ipynb`, `docs/bitacora_proyecto.md` y `app.py` cuando corresponda; verificar el estado real de Source Control antes de preparar el Commit.
+- Configurar el servicio web en Render, completar el despliegue y comprobar que la aplicación sea accesible desde un navegador.
+- Actualizar `README.md` con la URL pública verificada de Render y las instrucciones del proyecto.
+- Entregar el repositorio y la URL a Tripleten; atender la retroalimentación hasta obtener la aprobación.
 
-- Crear `notebooks/EDA.ipynb` antes de iniciar el análisis.
-
-- Desarrollar, probar y desplegar la aplicación.
-
-- Registrar y publicar los cambios posteriores de la bitácora.
-
-**Criterio de continuidad:** Cada nueva actividad relevante se documentará y verificará antes de avanzar.
+**Criterio de continuidad:** Documentar y verificar cada actividad relevante antes de avanzar. Agrupar la publicación de cambios en entregables significativos; mantener la secuencia Markdown → código → ejecución → resultados → interpretación para el trabajo de EDA.
