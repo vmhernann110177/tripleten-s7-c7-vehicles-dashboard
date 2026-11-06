@@ -748,35 +748,66 @@ La aplicación se ejecutó en `http://localhost:8501/`. Se comprobó el funciona
 
 **Resultado:** Las cinco funcionalidades de la aplicación se encuentran implementadas y se han comprobado mediante pruebas locales. Quedan pendientes la revisión final del código, la publicación de los cambios en GitHub y el despliegue en Render.
 
+### 2.28. Despliegue de la aplicación en Render
+
+**Objetivo:** Publicar la aplicación Streamlit para permitir su acceso desde Internet y verificar su funcionamiento fuera del entorno local.
+
+**Implementación:**
+
+- Se publicaron en GitHub las mejoras de la aplicación, el análisis exploratorio y la documentación mediante el commit `5f8ebe6`.
+- Se creó un servicio web en Render utilizando el repositorio público `vmhernann110177/tripleten-s7-c7-vehicles-dashboard`, rama `main`.
+- Se seleccionó el plan gratuito de Render.
+- Se configuró el comando de construcción: `pip install -r requirements.txt`.
+- Se configuró el comando de inicio: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0`.
+- Se mantuvo desactivado el despliegue automático.
+
+**Verificación:**
+
+- Render confirmó el estado `Your service is live`.
+- Se abrió la aplicación desde su dirección pública.
+- Se verificó visualmente que las cinco funcionalidades se cargaran correctamente.
+- Se comprobó que la búsqueda de vehículos mostrara los resultados correspondientes a los parámetros utilizados durante las pruebas.
+- Se incorporó el enlace público en `README.md`.
+
+**URL pública:**
+
+https://tripleten-s7-c7-vehicles-dashboard.onrender.com
+
+**Resultado:** La aplicación se encuentra publicada y accesible mediante Render. Quedan pendientes la publicación de los últimos cambios documentales en GitHub y la preparación de la entrega a Tripleten.
+
 ---
 
 ## 3. Estado actual
 
-**Completado:**
+### Completado
 
-- Repositorio público `tripleten-s7-c7-vehicles-dashboard` creado en GitHub, rama `main`, y clonado en una única carpeta local.
-- VS Code y GitHub Desktop integrados con el mismo repositorio; ciclos anteriores de Commit, sincronización y verificación remota completados.
-- Entorno Conda `vehicles_env` configurado y verificado con Python 3.14.8.
-- Dependencias `pandas`, `plotly` y `streamlit` instaladas y verificadas; `ipykernel` y `nbformat` habilitados para el notebook.
-- `.gitignore` configurado para excluir `.vscode/` del seguimiento de Git.
-- `requirements.txt` publicado en GitHub con las tres dependencias requeridas.
-- `vehicles_us.csv` incorporado y publicado en la raíz del repositorio.
-- `notebooks/EDA.ipynb` elaborado y validado de principio a fin en VS Code y Google Colab.
-- Histogramas y gráficos de dispersión elaborados con Plotly; resultados e interpretaciones documentados en el notebook.
-- `app.py` creado, vacío, en la raíz del repositorio.
+- Repositorio público de GitHub creado y configurado.
+- Entorno de desarrollo `vehicles_env` preparado y verificado en VS Code.
+- Dataset `vehicles_us.csv` incorporado al proyecto.
+- Análisis exploratorio desarrollado y documentado en `notebooks/EDA.ipynb`.
+- Aplicación Streamlit implementada en `app.py`, con cinco funcionalidades:
+  - Histograma del kilometraje de los vehículos.
+  - Gráfico de dispersión entre kilometraje y precio.
+  - Comparación de tipos de vehículos por fabricante.
+  - Comparación interactiva de precios entre fabricantes.
+  - Búsqueda de vehículos según presupuesto, kilometraje y prioridad del consumidor.
+- Pruebas funcionales realizadas en el entorno local.
+- Sintaxis de `app.py` verificada mediante `python -m py_compile app.py`.
+- Cambios de desarrollo publicados en GitHub mediante el commit `5f8ebe6`.
+- Despliegue exitoso de la aplicación en Render.
+- Funcionamiento de la aplicación pública verificado desde el navegador.
+- URL pública incorporada en `README.md`.
+- Desarrollo y despliegue documentados en la bitácora.
 
-**En curso:**
+### Pendiente
 
-- Documentación de avances recientes en `docs/bitacora_proyecto.md`, aún pendiente de publicación.
-- Desarrollo de la aplicación web en `app.py`.
+- Publicar en GitHub la actualización final de `README.md` y `docs/bitacora_proyecto.md`.
+- Verificar la sincronización entre GitHub remoto, GitHub Desktop y el repositorio local.
+- Preparar y realizar la entrega del proyecto en Tripleten.
+- Atender las observaciones del revisor, si las hubiera.
 
-**Pendiente:**
+### Criterio de continuidad
 
-- Implementar en Streamlit un encabezado, un histograma de `odometer`, un gráfico de dispersión `odometer`–`price` y dos casillas de verificación independientes.
-- Probar localmente la aplicación y comprobar el funcionamiento de ambos controles y gráficos.
-- Revisar y publicar en GitHub los cambios acumulados de `notebooks/EDA.ipynb`, `docs/bitacora_proyecto.md` y `app.py` cuando corresponda; verificar el estado real de Source Control antes de preparar el Commit.
-- Configurar el servicio web en Render, completar el despliegue y comprobar que la aplicación sea accesible desde un navegador.
-- Actualizar `README.md` con la URL pública verificada de Render y las instrucciones del proyecto.
-- Entregar el repositorio y la URL a Tripleten; atender la retroalimentación hasta obtener la aprobación.
+El desarrollo, las pruebas locales y el despliegue inicial se encuentran completados. La siguiente actividad consiste en publicar los cambios documentales pendientes, verificar el estado del repositorio y preparar la entrega del proyecto para su evaluación.
 
-**Criterio de continuidad:** Documentar y verificar cada actividad relevante antes de avanzar. Agrupar la publicación de cambios en entregables significativos; mantener la secuencia Markdown → código → ejecución → resultados → interpretación para el trabajo de EDA.
+**Aplicación pública:** https://tripleten-s7-c7-vehicles-dashboard.onrender.com
