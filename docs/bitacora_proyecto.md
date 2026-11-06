@@ -722,6 +722,32 @@ La aplicación se ejecutó en `http://localhost:8501/`. Se comprobó el funciona
 
 **Estado:** Aplicación funcional localmente. Publicación y despliegue pendientes.
 
+### 2.27. Ampliación de las visualizaciones y búsqueda interactiva de vehículos
+
+**Objetivo:** Mejorar la experiencia del usuario y ampliar las capacidades de análisis de la aplicación Streamlit.
+
+**Implementación:**
+
+- Se incorporó un gráfico de barras apiladas para comparar los tipos de vehículos anunciados por fabricante.
+- Se agregó una comparación interactiva de distribuciones de precios mediante diagramas de caja y un selector de fabricantes.
+- Se incluyeron instrucciones para interpretar los gráficos y utilizar sus controles.
+- Se reorganizó la interfaz mediante separadores visuales entre las funcionalidades.
+- Se desarrolló la sección «🚗 Encuentra tu próximo vehículo», que permite establecer límites mínimos y máximos de precio y kilometraje.
+- Se implementaron tres criterios de ordenamiento: menor precio, menor kilometraje y equilibrio entre ambas variables.
+- Se incorporó una tabla con los anuncios encontrados, mostrando modelo, año, precio, kilometraje, condición y tipo de vehículo.
+- Se conservaron los datos originales del archivo CSV.
+
+**Pruebas realizadas:**
+
+- Se verificó la interacción de la leyenda del gráfico de barras apiladas.
+- Se comprobó la selección y eliminación de fabricantes en la comparación de precios.
+- Se probaron diferentes límites de búsqueda y prioridades de ordenamiento.
+- Con precios entre 5,000 y 30,000 USD y kilometrajes entre 1,000 y 80,000, se obtuvieron 9,354 anuncios.
+- Se comprobó que cambiar la prioridad de equilibrio a menor precio conserva la cantidad de resultados y reorganiza correctamente la tabla.
+- Se identificó que algunos anuncios presentan precios llamativamente bajos o condiciones como `salvage`, por lo que los resultados se presentan como alternativas de búsqueda, no como recomendaciones de compra verificadas.
+
+**Resultado:** Las cinco funcionalidades de la aplicación se encuentran implementadas y se han comprobado mediante pruebas locales. Quedan pendientes la revisión final del código, la publicación de los cambios en GitHub y el despliegue en Render.
+
 ---
 
 ## 3. Estado actual
